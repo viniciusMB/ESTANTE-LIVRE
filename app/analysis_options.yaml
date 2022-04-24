@@ -78,7 +78,6 @@ dart_code_metrics:
   rules:
     - newline-before-return
     - avoid-global-state
-    - avoid-non-null-assertion
     - avoid-throw-in-catch-block
     - avoid-unnecessary-type-assertions
     - avoid-unnecessary-type-casts
