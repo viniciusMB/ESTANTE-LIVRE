@@ -1,0 +1,98 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+
+linter:
+  rules:
+    # Error rules - Not following them might cause build or runtime errors,
+    # unexpected outputs and unreliable code behaviour.
+    avoid_dynamic_calls: true
+    avoid_print: true
+    prefer_single_quotes: true
+    avoid_type_to_string: true
+    cancel_subscriptions: true
+    close_sinks: true
+    comment_references: true
+    control_flow_in_finally: true
+    empty_statements: true
+    no_adjacent_strings_in_list: true
+    no_logic_in_create_state: true
+    prefer_void_to_null: true
+    throw_in_finally: true
+    unnecessary_statements: true
+    unsafe_html: true
+    use_key_in_widget_constructors: true
+
+    # Style rules - These are mostly based on the official style guide.
+    always_require_non_null_named_parameters: true
+    always_specify_types: true
+    annotate_overrides: true
+    avoid_annotating_with_dynamic: true
+    avoid_bool_literals_in_conditional_expressions: true
+    avoid_catches_without_on_clauses: true
+    avoid_catching_errors: true
+    avoid_classes_with_only_static_members: true
+    avoid_double_and_int_checks: true
+    avoid_escaping_inner_quotes: true
+    avoid_field_initializers_in_const_classes: true
+    avoid_final_parameters: true
+    avoid_function_literals_in_foreach_calls: true
+    avoid_implementing_value_types: true
+    avoid_init_to_null: true
+    avoid_multiple_declarations_per_line: true
+    avoid_null_checks_in_equality_operators: true
+    avoid_positional_boolean_parameters: true
+    avoid_renaming_method_parameters: true
+    avoid_return_types_on_setters: true
+    avoid_returning_null: true
+    avoid_returning_null_for_void: true
+    avoid_returning_this: true
+    avoid_setters_without_getters: true
+    avoid_single_cascade_in_expression_statements: true
+    avoid_types_on_closure_parameters: true
+    avoid_unnecessary_containers: true
+    avoid_unused_constructor_parameters: true
+    cascade_invocations: true
+    constant_identifier_names: true
+    do_not_use_environment: true
+    empty_constructor_bodies: true
+    eol_at_end_of_file: true
+    exhaustive_cases: true
+    lines_longer_than_80_chars: true
+    no_leading_underscores_for_local_identifiers: true
+    one_member_abstracts: true
+    overridden_fields: true
+    parameter_assignments: true
+    prefer_contains: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_equal_for_default_values: true
+    prefer_final_fields: true
+    prefer_if_null_operators: true
+    use_setters_to_change_properties: true
+    unnecessary_this: true
+
+dart_code_metrics:
+  rules:
+    - newline-before-return
+    - avoid-global-state
+    - avoid-non-null-assertion
+    - avoid-throw-in-catch-block
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unused-parameters
+    - double-literal-format
+    - newline-before-return
+    - prefer-async-await
+    - prefer-conditional-expressions
+    - prefer-immediate-return
+    - prefer-match-file-name
+    - prefer-trailing-comma
+    - always-remove-listener
+    - avoid-border-all
+    - avoid-returning-widgets
+    - avoid-wrapping-in-padding
+    - prefer-const-border-radius
+    - prefer-single-widget-per-file
