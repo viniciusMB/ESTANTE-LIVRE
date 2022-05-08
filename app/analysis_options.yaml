@@ -27,9 +27,7 @@ linter:
 
     # Style rules - These are mostly based on the official style guide.
     always_require_non_null_named_parameters: true
-    always_specify_types: true
     annotate_overrides: true
-    avoid_annotating_with_dynamic: true
     avoid_bool_literals_in_conditional_expressions: true
     avoid_catches_without_on_clauses: true
     avoid_catching_errors: true
@@ -51,7 +49,6 @@ linter:
     avoid_returning_this: true
     avoid_setters_without_getters: true
     avoid_single_cascade_in_expression_statements: true
-    avoid_types_on_closure_parameters: true
     avoid_unnecessary_containers: true
     avoid_unused_constructor_parameters: true
     cascade_invocations: true

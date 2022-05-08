@@ -66,7 +66,7 @@ class DioSingleton {
   /// important option.
   static Future<Response<T>> post<T>(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
@@ -93,7 +93,7 @@ class DioSingleton {
   /// important option.
   static Future<Response<T>> put<T>(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
@@ -120,7 +120,7 @@ class DioSingleton {
   /// important option.
   static Future<Response<T>> patch<T>(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
@@ -147,7 +147,7 @@ class DioSingleton {
   /// important option.
   static Future<Response<T>> delete<T>(
     String path, {
-    data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,

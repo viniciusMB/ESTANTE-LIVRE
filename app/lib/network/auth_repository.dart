@@ -35,8 +35,6 @@ class AuthRepository {
   /// Attempts to create an account from a given [UserLoginBody].
   static Future<void> signUp(UserRegisterBody data) async {
     await DioSingleton.post(_signUpUrl, data: data);
-
-    return;
   }
 
   /// Signs out by invalidating the curent token and removing it from memory
@@ -44,7 +42,5 @@ class AuthRepository {
   static Future<void> signOut() async {
     await DioSingleton.put(_signOutUrl);
     await DioSingleton.setToken(null);
-
-    return;
   }
 }
