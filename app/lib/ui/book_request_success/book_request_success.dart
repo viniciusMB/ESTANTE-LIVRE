@@ -5,8 +5,6 @@ import '../../common/shelf_colors.dart';
 class BookRequestSuccess extends StatelessWidget {
   const BookRequestSuccess({Key? key}) : super(key: key);
 
-  static const IconData check = IconData(0xe156, fontFamily: 'MaterialIcons');
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,7 +22,7 @@ class BookRequestSuccess extends StatelessWidget {
           children:  [
             const Center(
               child: Icon(
-              Icons.check,
+              Icons.check_circle,
               color: ShelfColors.green,
               size: 320,
             ),),
