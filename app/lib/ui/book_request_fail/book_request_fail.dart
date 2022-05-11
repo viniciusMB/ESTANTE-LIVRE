@@ -7,6 +7,8 @@ class BookRequestFail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //Card em si
     return Card(
       shadowColor: Colors.black,
       margin: const EdgeInsets.symmetric(vertical: 100, horizontal: 250),
@@ -14,11 +16,15 @@ class BookRequestFail extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40.0)),
       ),
+
+      //Coluna contendo o ícone, descrição e botão
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
         children: [
+
+          //Ícone
           const Center(
             child: Icon(
               Icons.cancel,
@@ -26,6 +32,8 @@ class BookRequestFail extends StatelessWidget {
               size: 320,
             ),
           ),
+
+          //Descrição
           const Center(
             child: Text(
               'Envio de solicitação falhou.',
@@ -35,6 +43,8 @@ class BookRequestFail extends StatelessWidget {
               ),
             ),
           ),
+
+          //Botão do tipo Elevated Button
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
@@ -47,14 +57,12 @@ class BookRequestFail extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(32.0)),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {}, //Função pendente
                 child: const Text(
                   'Voltar',
                   style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ),
-          ),
+          ),),),),
+
         ],
       ),
     );

@@ -7,6 +7,8 @@ class BookRequestSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //Card em si
     return Card(
       shadowColor: Colors.black,
       margin: const EdgeInsets.symmetric(vertical: 100, horizontal: 250),
@@ -14,17 +16,23 @@ class BookRequestSuccess extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40.0)),
       ),
+
+      //Coluna contendo o ícone, descrição e botão
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
         children:  [
+
+          //Ícone
           const Center(
             child: Icon(
             Icons.check_circle,
             color: ShelfColors.green,
             size: 320,
           ),),
+
+          //Descrição
           const Center(
             child: Text(
               'Sua solicitação foi enviada!',
@@ -34,6 +42,8 @@ class BookRequestSuccess extends StatelessWidget {
               ),
             ),
           ),
+
+          //Botão do tipo Elevated Button
           Align(
           alignment: Alignment.centerRight,
           child: Padding(
@@ -50,9 +60,9 @@ class BookRequestSuccess extends StatelessWidget {
               child: const Text(
                 'Concluir',
                 style: TextStyle(color: Colors.black),),
-            ),
-          ),
-      ),],
+            ),),),
+
+          ],
       ),
     );
   }
