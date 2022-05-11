@@ -10,7 +10,7 @@ class BookRequestSuccess extends StatelessWidget {
     return SizedBox(
       child: Card(
         shadowColor: Colors.black,
-        margin: const EdgeInsets.symmetric(vertical: 180, horizontal: 250),
+        margin: const EdgeInsets.symmetric(vertical: 100, horizontal: 250),
         color: ShelfColors.yellowLight,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(40.0)),
