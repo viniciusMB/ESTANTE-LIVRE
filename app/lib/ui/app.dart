@@ -1,6 +1,7 @@
 import 'package:estante_livre/common/shelf_app_bar.dart';
 import 'package:estante_livre/common/shelf_bottom_sheet.dart';
 import 'package:estante_livre/common/theme.dart';
+import 'package:estante_livre/ui/book_details/book_details.dart';
 import 'package:estante_livre/ui/book_request_success/book_request_success.dart';
 import 'package:estante_livre/ui/book_request_fail/book_request_fail.dart';
 import 'package:estante_livre/ui/catalog/catalog.dart';
@@ -27,6 +28,7 @@ class App extends StatelessWidget {
         '/login': (BuildContext context) => const Login(),
         '/register': (BuildContext context) => const Register(),
         '/my_area': (BuildContext context) => const MyArea(),
+        '/book_details': (BuildContext context) => const BookDetails(),
         '/book_request_success': (BuildContext context) => const BookRequestSuccess(),
         '/book_request_fail': (BuildContext context) => const BookRequestFail(),
       },
