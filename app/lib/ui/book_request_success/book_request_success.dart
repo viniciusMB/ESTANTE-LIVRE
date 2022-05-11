@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../common/shelf_colors.dart';
 
-class BookRequest extends StatelessWidget {
-  const BookRequest({Key? key}) : super(key: key);
+class BookRequestSuccess extends StatelessWidget {
+  const BookRequestSuccess({Key? key}) : super(key: key);
 
   static const IconData check = IconData(0xe156, fontFamily: 'MaterialIcons');
 
