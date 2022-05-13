@@ -22,11 +22,11 @@ class App extends StatelessWidget {
       theme: shelfTheme,
       home: const Home(),
       routes: <String, WidgetBuilder>{
-        'catalog': (BuildContext context) => const Catalog(),
-        'login': (BuildContext context) => const Login(),
-        'register': (BuildContext context) => const Register(),
-        'my_area': (BuildContext context) => const MyArea(),
-        'book_request': (BuildContext context) => const BookRequest(),
+        '/catalog': (BuildContext context) => const Catalog(),
+        '/login': (BuildContext context) => const Login(),
+        '/register': (BuildContext context) => const Register(),
+        '/my_area': (BuildContext context) => const MyArea(),
+        '/book_request': (BuildContext context) => const BookRequest(),
       },
       builder: (BuildContext context, Widget? pageWidget) => Scaffold(
         appBar: const ShelfAppBar(),
