@@ -7,11 +7,10 @@ class BookRequestFail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     //Card em si
     return Card(
       shadowColor: Colors.black,
-      margin: const EdgeInsets.symmetric(vertical: 100, horizontal: 250),
+      margin: const EdgeInsets.symmetric(vertical: 80, horizontal: 250),
       color: ShelfColors.yellowLight,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40.0)),
@@ -23,12 +22,11 @@ class BookRequestFail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
         children: [
-
           //Ícone
           const Center(
             child: Icon(
               Icons.cancel,
-              color: ShelfColors.pink,
+              color: ShelfColors.red,
               size: 320,
             ),
           ),
@@ -48,21 +46,23 @@ class BookRequestFail extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(right: 30),
+              padding: const EdgeInsets.only(right: 30, bottom: 20),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(120, 60),
-                  primary: ShelfColors.pink,
+                  primary: ShelfColors.red,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(32.0)),
                   ),
                 ),
-                onPressed: () {}, //Função pendente
+                onPressed: () => Navigator.of(context).pop(), //Função pendente
                 child: const Text(
                   'Voltar',
                   style: TextStyle(color: Colors.black),
-          ),),),),
-
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
