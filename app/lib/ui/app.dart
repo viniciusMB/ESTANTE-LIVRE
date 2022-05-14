@@ -24,6 +24,7 @@ class App extends StatelessWidget {
       theme: shelfTheme,
       home: const Home(),
       routes: <String, WidgetBuilder>{
+<<<<<<< HEAD
         'catalog': (BuildContext context) => const Catalog(),
         'login': (BuildContext context) => const Login(),
         'register': (BuildContext context) => const Register(),
@@ -32,6 +33,13 @@ class App extends StatelessWidget {
         'book_request_success': (BuildContext context) =>
             const BookRequestSuccess(),
         'book_request_fail': (BuildContext context) => const BookRequestFail(),
+=======
+        '/catalog': (BuildContext context) => const Catalog(),
+        '/login': (BuildContext context) => const Login(),
+        '/register': (BuildContext context) => const Register(),
+        '/my_area': (BuildContext context) => const MyArea(),
+        '/book_request': (BuildContext context) => const BookRequest(),
+>>>>>>> e9caa3b0d87a8093433921c14711a60bae63031a
       },
       builder: (BuildContext context, Widget? pageWidget) => Scaffold(
         appBar: const ShelfAppBar(),
