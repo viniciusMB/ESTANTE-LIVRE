@@ -1,9 +1,9 @@
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:estante_livre/ui/book_request_success/book_request_success.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/shelf_colors.dart';
+import '../book_confirmation/book_confirmation.dart';
 
 class BookDetails extends StatelessWidget {
   const BookDetails({Key? key}) : super(key: key);
@@ -121,13 +121,14 @@ class BookDetails extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            //Renderização do Widget
                             onPressed: () {
                               showDialog(
                                 context: context,
                                 builder: (context) {
                                   return const Dialog(
                                     backgroundColor: Colors.transparent,
-                                    child: BookRequestSuccess(),
+                                    child: BookConfirmation(),
                                   );
                                 },
                               );
