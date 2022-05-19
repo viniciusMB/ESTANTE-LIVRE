@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_new
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -147,7 +145,7 @@ class BookConfirmation extends StatelessWidget {
                         ),
                         //Renderização do Widget
                         onPressed: () {
-                          Random random = new Random(); //Possibilidade de falha
+                          Random random = Random(); //Possibilidade de falha
                           bool rng = random.nextBool();
                           if (rng) {
                             Navigator.of(context).pop(); //Já que o process foi
