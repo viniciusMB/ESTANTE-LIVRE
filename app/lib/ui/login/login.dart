@@ -5,6 +5,12 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return Center(
+      child: Column(
+        children: <Widget>[
+          const Text("teste"),
+        ],
+      ),
+    );
   }
 }
