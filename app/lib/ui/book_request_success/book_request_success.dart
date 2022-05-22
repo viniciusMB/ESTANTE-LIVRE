@@ -16,7 +16,7 @@ class BookRequestSuccess extends StatelessWidget {
         child: Card(
           shadowColor: Colors.black,
           //margin: const EdgeInsets.symmetric(vertical: 80, horizontal: 250), //Need to make a sizedBox to Wrap the Card and pass the width and height there.
-          color: ShelfColors.yellowLight,
+          color: ShelfColors.blueLighter,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(40.0)),
           ),

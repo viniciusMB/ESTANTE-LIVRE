@@ -18,7 +18,7 @@ class BookConfirmation extends StatelessWidget {
         width: (MediaQuery.of(context).size.height * 0.7),
         child: Card(
           shadowColor: Colors.black,
-          color: ShelfColors.yellowLight,
+          color: ShelfColors.blueLighter,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(40.0)),
           ),
@@ -33,7 +33,7 @@ class BookConfirmation extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Solicitando Doação do Livro: NOME DO LIVRO',
+                  'Solicitando Doação do Livro: Nome do Livro',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -45,7 +45,7 @@ class BookConfirmation extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Responsável Pelo Anúncio: NOME DA PESSOA',
+                  'Responsável Pelo Anúncio: Nome da Pessoa',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -57,7 +57,7 @@ class BookConfirmation extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Localização: NOME DA SEDE',
+                  'Localização: Nome da Sede',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,

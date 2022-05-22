@@ -15,7 +15,7 @@ class BookRequestFail extends StatelessWidget {
         child: Card(
           shadowColor: Colors.black,
           //margin: const EdgeInsets.symmetric(vertical: 80, horizontal: 250),
-          color: ShelfColors.yellowLight,
+          color: ShelfColors.blueLighter,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(40.0)),
           ),
