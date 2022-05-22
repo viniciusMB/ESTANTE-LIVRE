@@ -11,6 +11,7 @@ class ShelfColors {
 
   static const Color blue = Color(0xFF80A9E0);
   static const Color blueLight = Color(0xFF74DAE0);
+  static const Color blueLighter = Color(0xFFACDFE2);
   static const Color red = Color(0xFFEE6060);
   static const Color pink = Color(0xFFE0948B);
   static const Color yellow = Color(0xFFE0B45E);
