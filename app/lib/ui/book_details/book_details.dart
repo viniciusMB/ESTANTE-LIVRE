@@ -103,46 +103,85 @@ class BookDetails extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 24), //Espaçamento
-                      //Botão de Solicitação
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 30), //right:10
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size(
-                                260,
-                                60,
-                              ),
-                              primary: ShelfColors.green,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(32.0),
+                      //Linha de Botões
+                      Row(
+                        children: [
+                          //Botão de Voltar
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 30), //right:10
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size(
+                                    260,
+                                    60,
+                                  ),
+                                  primary: ShelfColors.red,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(32.0),
+                                    ),
+                                  ),
+                                ),
+                                //Renderização do Widget
+                                onPressed: () {},
+                                child: const Text(
+                                  'Voltar',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
-                            //Renderização do Widget
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return const Dialog(
-                                    backgroundColor: Colors.transparent,
-                                    child: BookConfirmation(),
+                          ),
+
+                          //Botão de Solicitação
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 30), //right:10
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size(
+                                    260,
+                                    60,
+                                  ),
+                                  primary: ShelfColors.green,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(32.0),
+                                    ),
+                                  ),
+                                ),
+                                //Renderização do Widget
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return const Dialog(
+                                        backgroundColor: Colors.transparent,
+                                        child: BookConfirmation(),
+                                      );
+                                    },
                                   );
                                 },
-                              );
-                            },
-                            child: const Text(
-                              'Solicitar Doação',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                                child: const Text(
+                                  'Solicitar Doação',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
                     ],
                   ),
