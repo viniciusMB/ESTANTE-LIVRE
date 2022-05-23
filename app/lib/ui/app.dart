@@ -1,7 +1,10 @@
 import 'package:estante_livre/common/shelf_app_bar.dart';
 import 'package:estante_livre/common/shelf_bottom_sheet.dart';
 import 'package:estante_livre/common/theme.dart';
-import 'package:estante_livre/ui/book_request/book_request.dart';
+import 'package:estante_livre/ui/book_details/book_details.dart';
+import 'package:estante_livre/ui/book_confirmation/book_confirmation.dart';
+import 'package:estante_livre/ui/book_request_success/book_request_success.dart';
+import 'package:estante_livre/ui/book_request_fail/book_request_fail.dart';
 import 'package:estante_livre/ui/catalog/catalog.dart';
 import 'package:estante_livre/ui/home/home.dart';
 import 'package:estante_livre/ui/login/login.dart';
@@ -26,7 +29,12 @@ class App extends StatelessWidget {
         '/login': (BuildContext context) => const Login(),
         '/register': (BuildContext context) => const Register(),
         '/my_area': (BuildContext context) => const MyArea(),
-        '/book_request': (BuildContext context) => const BookRequest(),
+        '/book_details': (BuildContext context) => const BookDetails(),
+        '/book_confirmation': (BuildContext context) =>
+            const BookConfirmation(),
+        '/book_request_success': (BuildContext context) =>
+            const BookRequestSuccess(),
+        '/book_request_fail': (BuildContext context) => const BookRequestFail(),
       },
       builder: (BuildContext context, Widget? pageWidget) => Scaffold(
         appBar: const ShelfAppBar(),
@@ -35,7 +43,10 @@ class App extends StatelessWidget {
             constraints: const BoxConstraints(
               maxWidth: 1290,
             ),
-            child: pageWidget,
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 60),
+              child: pageWidget,
+            ),
           ),
         ),
         bottomSheet: const ShelfBottomSheet(),
