@@ -36,6 +36,15 @@ Em geral, ele englobou muitas das mesmas dificuldades envolvendo os 2 primeiros 
 
 ## Maria Luisa
 
+### My Area
+
+Nessa tela, o usuário tem acesso aos seus anúncios de livros a serem doados e pode adicionar mais um, editar os existentes ou excluí-los. No que se concerne ao layout, temos 3 blocos de conteúdo aqui. A própria tela representa um widget, o qual, nativamente, representa uma classe, que tem um construtor, e, para que sua renderização seja possível, sobrescreve o método Widget build. Assim, é possível perceber que há o conceito de orientação a objetos aqui, uma vez que todos os widgets que criamos são, de fato, do tipo widget, e sobrescrevemos um dos seus métodos a fim de personalizar o comportamento em nossa nova classe. 
+
+Tudo que está implementado em my_area se encontra dentro de um espaço delimitado por uma column, a qual reúne o conteúdo de forma que vários outros widgets possam ser alinhados em forma de bloco, um abaixo do outro. Dentro dessa área existem os 2 blocos de conteúdos que resumem as funcionalidades da tela: uma parte mais ao topo, que traz o nome do usuário e os botões que lhes permitem adicionar um anúncio ou fazer o logout e temos a parte que lista todos os anúncios do usuário de fato. Nessa parte em específico, aproveitando o conceito dos widgets e do conceito de classe, tornei cada um dos livros aqui em um widget a parte da tela principal. Assim, o código não só torna-se mais limpo, como também torna possível de que cada exibição de anúncio seja uma instância desse widget que irá variar conforme os parâmetros passados, no caso, os dados de cada anúncio vinculado ao usuário. 
+
+Como a comunicação com o back-end ainda não foi realizada, o widget permanece estático até o momento e a principal dificuldade até então tem sido a compreensão da dinâmica de posicionamento dos elementos dentro do widget my_area. 
+
+
 ## Mateus Romano
 
 ## Jeniffer Silva
