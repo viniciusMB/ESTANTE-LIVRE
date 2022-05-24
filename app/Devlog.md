@@ -58,3 +58,7 @@ Bem, eu não havia tido contato ainda com o flutter, então tem sido tudo bem no
 # Back-End
 
 ## Vinicius Martins
+
+Fiquei responsável por toda a construção de uma api que possibilitará a doação de livros.  Optei por utilizar o framework Nestjs pois, além de já possuir familiaridade, esse framework foi pensado para ser utilizado com conceitos de OOP, o que casou bem com a proposta do projeto.
+Idealmente sempre que um usuário reservar um livro, um email será enviado para quem o publicou na plataforma. Além disso, toda parte de cadastro tanto do usuário quanto dos livros e suas fotos será feita pela api. Até então já desenvolvi quase toda a parte de autenticação e estrutura do banco de dados além de ter começado a solucionar a questão das imagens, nunca trabalhei com esse tipo de dado, para mim está sendo bem divertido entender como lidar com imagens.
+
