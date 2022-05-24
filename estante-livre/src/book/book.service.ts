@@ -1,7 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBookDto } from './dto/create-book.dto';
-import { UpdateBookDto } from './dto/update-book.dto';
-
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Book } from './interfaces/book.interface';
@@ -10,23 +7,20 @@ import { Book } from './interfaces/book.interface';
 export class BookService {
   constructor(@InjectModel('Book') private readonly bookModel: Model<Book>) {}
 
-  create(book: Book) {
-    return 'This action adds a new book';
+  async create(book: Book) {
+    const newBook = new this.bookModel(book);
+    return newBook.save();
   }
 
-  findAll() {
-    return `This action returns all book`;
+  async findAll() {
+    return this.bookModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} book`;
+  async findOne(id: number) {
+    return this.bookModel.findById({ _id: id });
   }
 
-  update(id: number, updateBookDto: UpdateBookDto) {
-    return `This action updates a #${id} book`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} book`;
+  async remove(id: number) {
+    return this.bookModel.remove({ _id: id });
   }
 }
