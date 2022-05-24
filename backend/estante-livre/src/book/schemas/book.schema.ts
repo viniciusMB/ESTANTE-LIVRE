@@ -7,4 +7,5 @@ export const BookSchema = new mongoose.Schema({
   releaseDate: Date,
   ownerId: { type: String, required: true },
   bookImage: String,
+  status: { type: String, required: true },
 });

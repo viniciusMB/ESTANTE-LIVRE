@@ -10,7 +10,7 @@ import { Book } from './interfaces/book.interface';
 export class BookService {
   constructor(@InjectModel('Book') private readonly bookModel: Model<Book>) {}
 
-  create(createBookDto: CreateBookDto) {
+  create(book: Book) {
     return 'This action adds a new book';
   }
 
