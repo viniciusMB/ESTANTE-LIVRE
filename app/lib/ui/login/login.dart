@@ -18,15 +18,25 @@ class Login extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.only(top: 39.81),
-              child: Center(
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    'Estante Livre',
-                    style: TextStyle(fontSize: 25),
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: 39.81),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Image.asset("assets/images/logo.png"),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
+                        'Estante Livre',
+                        style: TextStyle(fontSize: 25),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
