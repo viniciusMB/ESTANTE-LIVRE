@@ -24,7 +24,7 @@ export class BookController {
     @Body() createBookDto: CreateBookDto,
   ) {
     const book = bookDateFormat(createBookDto);
-    book.bookImage = file.path;
+    book.bookImage = `${process.env.API_URL}${file.path}`;
     await this.bookService.create(book);
 
     const { bookImage, ...result } = book;
