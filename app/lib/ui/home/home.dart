@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  final int _counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +9,21 @@ class _HomeState extends State<Home> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Text(
-            'You have pushed the button this many times:',
+          ElevatedButton(
+            child: const Text('Detalhes do Livro'),
+            onPressed: () => Navigator.of(context).pushNamed('/book_details'),
           ),
-          Text(
-            '$_counter',
-            style: Theme.of(context).textTheme.headline4,
+          const SizedBox(height: 10),
+          ElevatedButton(
+            child: const Text('Catálogo'),
+            onPressed: () => Navigator.of(context).pushNamed('/catalog'),
           ),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            child: const Text('Minha área'),
+            onPressed: () => Navigator.of(context).pushNamed('/my_area'),
+          ),
+          const SizedBox(height: 10),
         ],
       ),
     );

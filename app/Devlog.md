@@ -4,6 +4,26 @@
 
 ## Edson Gonzalez
 
+### Arquitetura e suporte
+
+Como sou a pessoa com mais conhecimento com flutter na equipe, fiquei encarregado de preparar a microarquitetura do projeto e ajudar a equipe com suas dúvidas.
+
+### Definição das regras de análise estática de código
+
+A escolha das regras pro dart-code-metrics (veja o arquivo analysis_options.yaml), foi feita tentando atingir um equilíbrio entre boa qualidade de código, e eficiência no tempo de desenvolvimento, o que foi difícil, visto que quase todos os membros tiveram o primeiro contato com Flutter durante este projeto. Desde então, notei que o resultado da escolha foi positivo, pois os membros conseguiram aprender com as regras, visto que o próprio editor de texto constantemente sugere melhorias de padrão de código e explica a documentação do flutter na prática.
+
+### Deploy da aplicação
+
+Durante a última semana, tirei um momento pra ver sobre como realizar o deploy da aplicação web pelo firebase, pois até então só realizei deploy de flutter na loja da Google Play. Entendi boa parte do procedimento, mas ainda não tive muito progresso tangível.
+
+### Autenticação
+
+Expliquei extensivamente o processo de geração do token na entrega anterior então vou evitar comentar muito sobre, mas preparei o processo de autenticação criando um padrão de singleton.
+
+### Tela de Catálogo
+
+Uma tela atribuída pra mim, foi onde eu tive menos progresso devido a minhas outras atribuições, mas está indo normalmente.
+
 ## Victor Peixoto
 
 ### Book Request Success/Fail
@@ -44,6 +64,15 @@ Como a comunicação com o back-end ainda não foi realizada, o widget permanece
 
 
 ## Mateus Romano
+
+Por ora, estou trabalhando em desenvolver a interface da tela de login. Devo adimitir, não tive experiências prévias com o Flutter / Dart, apesar de ter trabalhado com o front-end previamente utilizando frameworks em Javascript. O Flutter tem um certo diferencial em relação a estas, que é não usar a DOM para montar os elementos no HTML, em vez disso, utiliza-se de yum canva e monta toda sua interface ali. Isso implica em não ser possível inspecionar a aplicação com as ferramentas do navegador, sendo necessário usar o modo de debug da IDE, o VSCode. Entratanto, infelizmente, ainda não consegui configurar o debugger corretamente, o quw atrapalhou um pouco.
+
+Ao estilizar os inputs, textosm, e botões da tela de login, percebi que até mesmo a propridade decoration ou style (a depender de qual seja o widget, já que decoration geralmente é destinada a estilização de fundo, enquanto style é mais voltada para estilizar o formato de textos e botões, por exemplo) dos Widgets recebe como valor, um objjeto a partir de um constructor que recebe parâmetros específicos para estilizar o Widget em questão. Ou seja, é bem orientada a objetos a linguagem. Só achei a nomenclatura de alguns parâmetros as serem passandos um pouco.. diferente, como no caso em que tive que usar o BorderSide para definir a cor da borda dos inputs. De 
+qualquer maneira, a documentação oficial é boa e me ajudou um bom tanto.
+
+É interessante observar que no Flutter, não apenas cada um dos elementos visíveis da interface, como Containers e caixas de Input (são objetos chamados de "Widgets") podem e provavelmente irão encapsular outros Widgets; ferramentas de espaçamento, como por exemplo, Align, Center, e Padding, também irão (inclusive, também são Widgets), o que é um conceito bem diferente do que eu tinha costume, pois em html, espaçamento conta como estilização, ou seja, competem ao css, e não ao html. Mas no Dart / Flutter, até mesmo o 
+espaçamento é definido por um objeto próprio....
+
 
 ## Jeniffer Silva
 
