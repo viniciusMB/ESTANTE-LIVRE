@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 
 import { UserService } from './services/user.service';
-import { User } from './schemas/user.interface';
+import { IUser } from './schemas/user.interface';
 import { JwtAuthGuard } from '../auth/guards/jwt.guards';
 
 @Controller('users')
@@ -17,12 +17,12 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Post()
-  async create(@Body() user: User) {
+  async create(@Body() user: IUser) {
     return this.userService.create(user);
   }
 
   @Post('login')
-  async login(@Body() user: User) {
+  async login(@Body() user: IUser) {
     return this.userService.login(user);
   }
 

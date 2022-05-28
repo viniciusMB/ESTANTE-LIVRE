@@ -3,9 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { BookModule } from './book/book.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { BookSchema } from './book/schemas/book.schema';
+import { UserSchema } from './user/schemas/user.shcema';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -14,7 +16,14 @@ import { join } from 'path';
     }),
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGO_URL),
-    BookModule,
+    MongooseModule.forFeature([
+      {
+        name: 'Book',
+        schema: BookSchema,
+      },
+      { name: 'User', schema: UserSchema },
+    ]),
+    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

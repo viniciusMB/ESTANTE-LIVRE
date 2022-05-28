@@ -3,6 +3,7 @@ export class CreateBookDto {
   author: string;
   ownerId: string;
   description: string;
-  releaseDate: string;
+  releaseDate?: any;
+  bookImage?: string;
   status: string;
 }
