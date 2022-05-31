@@ -20,12 +20,14 @@ import { storage } from './helpers/image-storage.helper';
 import { bookDateFormat } from './helpers/book-date.format.helper';
 import { reserveBookHelper } from './helpers/reserve-book.helper';
 import { UserService } from 'src/user/services/user.service';
+import { MailService } from 'src/mail/mail.service';
 
 @Controller('book')
 export class BookController {
   constructor(
     private readonly bookService: BookService,
     private readonly userService: UserService,
+    private readonly mailService: MailService,
   ) {}
 
   @Post('create')
@@ -56,7 +58,8 @@ export class BookController {
 
   @Post('reserveBook')
   async reserveBook(@Body() reserveBookDto: ReserveBookDto) {
-    const bookOnDb = await this.bookService.findOne(reserveBookDto.id);
+    const { bookId, fromEmail } = reserveBookDto;
+    const bookOnDb = await this.bookService.findOne(bookId);
     if (bookOnDb.status !== 'AVAILABLE') {
       throw new HttpException('Book Unavailable', 400);
     }
@@ -64,7 +67,7 @@ export class BookController {
 
     if (!user) throw new HttpException('User not found', 404);
 
-    await reserveBookHelper(bookOnDb, user);
-    this.bookService;
+    await this.bookService.updateStatus(bookId, 'RESERVED');
+    await this.mailService.sendBookReservation(user, fromEmail, bookOnDb);
   }
 }

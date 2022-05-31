@@ -24,4 +24,8 @@ export class BookService {
   async remove(id: number): Promise<IBook> {
     return this.bookModel.remove({ _id: id });
   }
+
+  async updateStatus(id: number, status: string) {
+    return this.bookModel.updateOne({ _id: id }, { status });
+  }
 }

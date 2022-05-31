@@ -1,4 +1,4 @@
 export class ReserveBookDto {
-  id: number;
-  status: string;
+  bookId: number;
+  fromEmail: string;
 }
