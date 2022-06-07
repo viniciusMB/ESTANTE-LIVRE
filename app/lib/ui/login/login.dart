@@ -19,7 +19,9 @@ class Login extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 39.81),
+              padding: MediaQuery.of(context).size.height < 750
+                  ? const EdgeInsets.only(top: 20)
+                  : const EdgeInsets.only(top: 39.81),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Row(
@@ -33,7 +35,9 @@ class Login extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 8),
                       child: Text(
                         'Estante Livre',
-                        style: TextStyle(fontSize: 25),
+                        style: MediaQuery.of(context).size.height < 750
+                            ? TextStyle(fontSize: 20)
+                            : TextStyle(fontSize: 25),
                       ),
                     ),
                   ],
@@ -52,8 +56,10 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(61, 50, 61, 0),
+            Padding(
+              padding: MediaQuery.of(context).size.height < 750
+                  ? EdgeInsets.fromLTRB(61, 30, 61, 0)
+                  : EdgeInsets.fromLTRB(61, 50, 61, 0),
               child: Center(
                 child: TextField(
                   decoration: InputDecoration(
@@ -71,8 +77,10 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(61, 50, 61, 14.39),
+            Padding(
+              padding: MediaQuery.of(context).size.height < 750
+                  ? EdgeInsets.fromLTRB(61, 30, 61, 14.39)
+                  : EdgeInsets.fromLTRB(61, 50, 61, 14.39),
               child: Center(
                 child: TextField(
                   decoration: InputDecoration(
@@ -90,7 +98,7 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(right: 61),
               child: Align(
                 alignment: Alignment.topRight,
@@ -101,7 +109,9 @@ class Login extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 26.61, bottom: 90.39),
+              padding: MediaQuery.of(context).size.height < 750
+                  ? EdgeInsets.only(top: 16.61, bottom: 90.39)
+                  : EdgeInsets.only(top: 26.61, bottom: 90.39),
               child: Center(
                 child: ElevatedButton(
                   onPressed: () => {},
