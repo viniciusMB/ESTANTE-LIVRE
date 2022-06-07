@@ -1,10 +1,8 @@
 import 'dart:math';
 
+import 'package:estante_livre/ui/book_request/book_request.dart';
 import 'package:flutter/material.dart';
-
 import '../../common/shelf_colors.dart';
-import '../book_request_success/book_request_success.dart';
-import '../book_request_fail/book_request_fail.dart';
 
 class BookConfirmation extends StatelessWidget {
   const BookConfirmation({Key? key}) : super(key: key);
@@ -156,7 +154,7 @@ class BookConfirmation extends StatelessWidget {
                               builder: (context) {
                                 return const Dialog(
                                   backgroundColor: Colors.transparent,
-                                  child: BookRequestSuccess(),
+                                  child: BookRequest(success: true),
                                 );
                               },
                             );
@@ -166,7 +164,7 @@ class BookConfirmation extends StatelessWidget {
                               builder: (context) {
                                 return const Dialog(
                                   backgroundColor: Colors.transparent,
-                                  child: BookRequestFail(),
+                                  child: BookRequest(success: false),
                                 );
                               },
                             );

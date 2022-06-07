@@ -143,8 +143,6 @@ class BookDetails extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              //Renderização do Widget
-                              onPressed: () {},
                               child: const Text(
                                 'Voltar',
                                 style: TextStyle(
@@ -153,6 +151,7 @@ class BookDetails extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
+                              onPressed: () {},
                             ),
 
                             //Botão de Solicitação
@@ -169,7 +168,14 @@ class BookDetails extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              //Renderização do Widget
+                              child: const Text(
+                                'Solicitar Doação',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                               onPressed: () {
                                 showDialog(
                                   context: context,
@@ -181,14 +187,6 @@ class BookDetails extends StatelessWidget {
                                   },
                                 );
                               },
-                              child: const Text(
-                                'Solicitar Doação',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
                             ),
                           ],
                         ),
