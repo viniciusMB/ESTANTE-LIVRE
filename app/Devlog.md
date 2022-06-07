@@ -52,6 +52,9 @@ Esse Widget foi de longe o mais complexo, visto que ele envolve Fazermos uma Row
 
 Em geral, ele englobou muitas das mesmas dificuldades envolvendo os 2 primeiros Widgets, mas conter uma imagem foi um desafio bem interessante, visto que a forma que a imagem é tratada é bem... peculiar, sobretudo como ela reage quando o Widget pai começa a restringir seu tamanho.
 
+Parando para rever o código do BookDetails depois de aprender um pouco mais me fez perceber uso desnecessário de determinados widgets e a estabelecer um melhor uso dos widgets que já existiam. Isso é, existiam vários atributos que eu precisava mudar, porém, widgets já existentes já traziam essas mudanças de propriedades através de certos atributos o que fez o código ficar bem mais limpo, porém, otimizações ainda estão sendo buscadas tanto para essa tela e então para as demais.
+Note que isso tudo é feito enquanto ainda não aparece a possibilidade de trabalhar integrando com o back-end.
+
 ## Maria Luisa
 
 ### My Area
