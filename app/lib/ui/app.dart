@@ -2,7 +2,6 @@ import 'package:estante_livre/common/shelf_app_bar.dart';
 import 'package:estante_livre/common/shelf_bottom_sheet.dart';
 import 'package:estante_livre/common/theme.dart';
 import 'package:estante_livre/ui/book_details/book_details.dart';
-import 'package:estante_livre/ui/book_confirmation/book_confirmation.dart';
 import 'package:estante_livre/ui/catalog/catalog.dart';
 import 'package:estante_livre/ui/home/home.dart';
 import 'package:estante_livre/ui/login/login.dart';
@@ -28,8 +27,6 @@ class App extends StatelessWidget {
         '/register': (BuildContext context) => const Register(),
         '/my_area': (BuildContext context) => const MyArea(),
         '/book_details': (BuildContext context) => const BookDetails(),
-        '/book_confirmation': (BuildContext context) =>
-            const BookConfirmation(),
       },
       builder: (BuildContext context, Widget? pageWidget) => Scaffold(
         appBar: const ShelfAppBar(),

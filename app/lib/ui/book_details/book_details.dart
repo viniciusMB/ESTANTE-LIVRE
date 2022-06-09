@@ -5,9 +5,24 @@ import 'package:flutter/material.dart';
 import '../../common/shelf_colors.dart';
 import '../book_confirmation/book_confirmation.dart';
 
-class BookDetails extends StatelessWidget {
-  const BookDetails({Key? key}) : super(key: key);
+class BookDetails extends StatefulWidget {
+  const BookDetails({
+    Key? key,
+  }) : super(key: key);
+  @override
+  _BookDetailsState createState() => _BookDetailsState();
 
+  final String bookName = 'Harry Potter e a Câmara Secreta';
+  final String bookGenre = 'Aventura';
+  final String bookState = 'Novo';
+  final String bookLocation = 'Salvador';
+  final String bookCondition = 'Boa';
+  final String bookDescription =
+      'This book tells the story of a boy called Harry Potter when he and his friends find out about a secret chamber inside their magic school.';
+  final String bookOwner = 'Victor';
+}
+
+class _BookDetailsState extends State<BookDetails> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -60,19 +75,19 @@ class BookDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Text(
-                          'Nome do Livro',
-                          style: TextStyle(
+                        Text(
+                          widget.bookName,
+                          style: const TextStyle(
                             fontSize: 36,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
 
-                        const SizedBox(height: 36), //Espaçamento
+                        const SizedBox(height: 24), //Espaçamento
 
-                        const Text(
-                          'Gênero do Livro',
-                          style: TextStyle(
+                        Text(
+                          'Gênero do Livro: ${widget.bookGenre}',
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -80,9 +95,9 @@ class BookDetails extends StatelessWidget {
 
                         const SizedBox(height: 24), //Espaçamento
 
-                        const Text(
-                          'Estado: Novo ou Usado',
-                          style: TextStyle(
+                        Text(
+                          'Estado: ${widget.bookState}',
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -90,9 +105,9 @@ class BookDetails extends StatelessWidget {
 
                         const SizedBox(height: 24), //Espaçamento
 
-                        const Text(
-                          'Localização',
-                          style: TextStyle(
+                        Text(
+                          'Localização: ${widget.bookLocation}',
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -100,9 +115,9 @@ class BookDetails extends StatelessWidget {
 
                         const SizedBox(height: 24), //Espaçamento
 
-                        const Text(
-                          'Condição: Boa ou Mostra Marcas',
-                          style: TextStyle(
+                        Text(
+                          'Condição: ${widget.bookCondition}',
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -111,12 +126,12 @@ class BookDetails extends StatelessWidget {
                         const SizedBox(height: 24), //Espaçamento
 
                         //Descrição mais elaborada do livro
-                        const SingleChildScrollView(
+                        SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Text(
-                            'Breve descrição pelo autor do anúncio sobre o livro.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab',
+                            widget.bookDescription,
                             maxLines: 3,
-                            style: TextStyle(
+                            style: const TextStyle(
                               //overflow: TextOverflow.ellipsis,
                               fontSize: 20,
                             ),
@@ -180,9 +195,13 @@ class BookDetails extends StatelessWidget {
                                 showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return const Dialog(
+                                    return Dialog(
                                       backgroundColor: Colors.transparent,
-                                      child: BookConfirmation(),
+                                      child: BookConfirmation(
+                                        bookName: widget.bookName,
+                                        bookOwner: widget.bookOwner,
+                                        bookLocation: widget.bookLocation,
+                                      ),
                                     );
                                   },
                                 );

@@ -4,9 +4,22 @@ import 'package:estante_livre/ui/book_request/book_request.dart';
 import 'package:flutter/material.dart';
 import '../../common/shelf_colors.dart';
 
-class BookConfirmation extends StatelessWidget {
-  const BookConfirmation({Key? key}) : super(key: key);
+class BookConfirmation extends StatefulWidget {
+  const BookConfirmation({
+    Key? key,
+    required this.bookName,
+    required this.bookOwner,
+    required this.bookLocation,
+  }) : super(key: key);
+  @override
+  _BookConfirmationState createState() => _BookConfirmationState();
 
+  final String bookName;
+  final String bookOwner;
+  final String bookLocation;
+}
+
+class _BookConfirmationState extends State<BookConfirmation> {
   @override
   Widget build(BuildContext context) {
     //Card em si
@@ -28,11 +41,11 @@ class BookConfirmation extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               //Nome do Livro
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Solicitando Doação do Livro: Nome do Livro',
-                  style: TextStyle(
+                  'Solicitando Doação do Livro: ${widget.bookName}',
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -40,11 +53,11 @@ class BookConfirmation extends StatelessWidget {
               ),
 
               //Responsável pelo Anúncio
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Responsável Pelo Anúncio: Nome da Pessoa',
-                  style: TextStyle(
+                  'Responsável Pelo Anúncio: ${widget.bookOwner}',
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -52,11 +65,11 @@ class BookConfirmation extends StatelessWidget {
               ),
 
               //Localização
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Localização: Nome da Sede',
-                  style: TextStyle(
+                  'Localização: ${widget.bookLocation}',
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -88,7 +101,7 @@ class BookConfirmation extends StatelessWidget {
                         children: <InlineSpan>[
                           WidgetSpan(
                             child: Text(
-                              'INSIRA AQUI MAIS INFORMAÇOES SOBRE SUA SOLICITAÇÃO, LEMBRE-SE DE CHECAR SEU EMAIL PARA ACOMPANHAR',
+                              'Entre em mais detalhes sobre sua solicitação e não esqueça de seu e-mail!',
                               style: TextStyle(
                                 color: Colors.black,
                               ),
