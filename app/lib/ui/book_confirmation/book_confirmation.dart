@@ -20,6 +20,15 @@ class BookConfirmation extends StatefulWidget {
 }
 
 class _BookConfirmationState extends State<BookConfirmation> {
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     //Card em si
@@ -80,10 +89,9 @@ class _BookConfirmationState extends State<BookConfirmation> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 50),
                 child: TextFormField(
-                  //minLines: 1,
+                  controller: myController, //Adicionando o Controller
                   maxLines: 3,
                   decoration: const InputDecoration(
-                    //border: InputBorder.none,
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -156,9 +164,9 @@ class _BookConfirmationState extends State<BookConfirmation> {
                         ),
                         //Renderização do Widget
                         onPressed: () {
-                          Random random = Random(); //Possibilidade de falha
-                          bool rng = random.nextBool();
-                          if (rng) {
+                          //Random random = Random(); //Possibilidade de falha
+                          //bool rng = random.nextBool();
+                          if (myController.text.trim() != '') {
                             Navigator.of(context).pop(); //Já que o process foi
                             //um sucesso, podemos dar pop, nenhum texto será
                             //perdido.
