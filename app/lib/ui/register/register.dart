@@ -169,7 +169,7 @@ class Register extends StatelessWidget {
                   child: const Padding(
                     padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                     child: Text(
-                      'Entrar',
+                      'Cadastrar',
                       style: TextStyle(
                         color: Colors.black,
                       ),
