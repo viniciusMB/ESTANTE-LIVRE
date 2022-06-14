@@ -7,5 +7,7 @@ export interface IBook extends Document {
   description?: string;
   releaseDate?: Date;
   ownerId: number;
+  location?: string;
+  genre?: string;
   bookImage?: string;
 }

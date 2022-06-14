@@ -17,6 +17,12 @@ export class Book {
   @Prop({ required: true })
   status: string;
 
+  @Prop()
+  location: string;
+
+  @Prop()
+  genre: string;
+
   @Prop({ required: true })
   ownerId: number;
 

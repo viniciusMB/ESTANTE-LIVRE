@@ -8,6 +8,12 @@ import { join } from 'path';
 import { BookSchema } from './book/schemas/book.schema';
 import { UserSchema } from './user/schemas/user.shcema';
 import { MailModule } from './mail/mail.module';
+import { BookController } from './book/book.controller';
+import { UserController } from './user/user.controller';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+import { BookModule } from './book/book.module';
+import { User } from './user/schemas/user.shcema';
 
 @Module({
   imports: [
@@ -15,17 +21,24 @@ import { MailModule } from './mail/mail.module';
       rootPath: join(__dirname, '..', 'public'),
     }),
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_URL),
+    MongooseModule.forRoot(
+      'mongodb+srv://viniciusMB:58274169@cluster0.5dhn5.mongodb.net/?retryWrites=true&w=majority',
+    ),
     MongooseModule.forFeature([
       {
         name: 'Book',
         schema: BookSchema,
       },
-      { name: 'User', schema: UserSchema },
+      { name: User.name, schema: UserSchema },
     ]),
+
+    AuthModule,
+    UserModule,
+    BookModule,
     MailModule,
+    ConfigModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [UserController, BookController],
+  providers: [],
 })
 export class AppModule {}

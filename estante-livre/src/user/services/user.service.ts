@@ -1,20 +1,23 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 
 import { IUser } from '../schemas/user.interface';
+import { User, UserDocument } from '../schemas/user.shcema';
 
 import { AuthService } from 'src/auth/services/auth.service';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { IUserResponse } from '../schemas/user-response.interface';
+import { CreateUserDto } from '../dto/create-user.dto';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<IUser>,
-    private authService: AuthService,
+    @InjectModel(User.name) private userModel: Model<UserDocument>,
+    @Inject(forwardRef(() => AuthService))
+    private readonly authService: AuthService,
   ) {}
 
-  async create(user: IUser) {
+  async create(user: CreateUserDto) {
     const passwordHash = this.authService.hashPassword(user.password);
     const newUser = new this.userModel();
     newUser.name = user.name;
@@ -38,7 +41,7 @@ export class UserService {
     return this.userModel.remove({ _id: id });
   }
 
-  async login(user: IUser): Promise<string> {
+  async login(user: CreateUserDto): Promise<string> {
     const uservalidated = await this.validateUser(user.email, user.password);
     if (uservalidated) {
       return this.authService.generateJWT(user);
