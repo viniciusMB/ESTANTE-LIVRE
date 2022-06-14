@@ -52,6 +52,9 @@ Esse Widget foi de longe o mais complexo, visto que ele envolve Fazermos uma Row
 
 Em geral, ele englobou muitas das mesmas dificuldades envolvendo os 2 primeiros Widgets, mas conter uma imagem foi um desafio bem interessante, visto que a forma que a imagem é tratada é bem... peculiar, sobretudo como ela reage quando o Widget pai começa a restringir seu tamanho.
 
+Parando para rever o código do BookDetails depois de aprender um pouco mais me fez perceber uso desnecessário de determinados widgets e a estabelecer um melhor uso dos widgets que já existiam. Isso é, existiam vários atributos que eu precisava mudar, porém, widgets já existentes já traziam essas mudanças de propriedades através de certos atributos o que fez o código ficar bem mais limpo, porém, otimizações ainda estão sendo buscadas tanto para essa tela e então para as demais.
+Note que isso tudo é feito enquanto ainda não aparece a possibilidade de trabalhar integrando com o back-end.
+
 ## Maria Luisa
 
 ### My Area
@@ -91,3 +94,10 @@ Bem, eu não havia tido contato ainda com o flutter, então tem sido tudo bem no
 Fiquei responsável por toda a construção de uma api que possibilitará a doação de livros.  Optei por utilizar o framework Nestjs pois, além de já possuir familiaridade, esse framework foi pensado para ser utilizado com conceitos de OOP, o que casou bem com a proposta do projeto.
 Idealmente sempre que um usuário reservar um livro, um email será enviado para quem o publicou na plataforma. Além disso, toda parte de cadastro tanto do usuário quanto dos livros e suas fotos será feita pela api. Até então já desenvolvi quase toda a parte de autenticação e estrutura do banco de dados além de ter começado a solucionar a questão das imagens, nunca trabalhei com esse tipo de dado, para mim está sendo bem divertido entender como lidar com imagens.
 
+# Devlog 06/06/2022
+
+## Mateus Romano
+
+Fiz a interface da tela de Cadasstro. Além disso, estive procurando melhorar a responsividade das telas que estou fazendo. Descobri que posso utilizar lógica condicional ao retornar o valor da propriedade de um widget. Utilizei isso para retornar diferentes proporções da altura da tela para os paddingsa e para a fonte, a depenmder do tamanho da tela em questão, similar a como funcionaria um media query no CSS. isso porque, com o dedsign original, há overflow que acaba sendo gerado ao reduzir a altura da tela para algo como 720p. 
+
+Entretanto, obtive ainda alguns bugs de compilação ao usar o ternário para retornar valores diferentes em alguns casos, erros que parecem ter a ver com o fato de  que estava tentando atribuir um valor variável a uma propriedade de padding, mas com a keyword "const"; ou seja, apesar de ser uma boa prática usar constante em valores imutáveis, nesse caso o valor pode acabar por mudar devido à condicional.
