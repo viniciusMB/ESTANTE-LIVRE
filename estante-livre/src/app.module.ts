@@ -21,9 +21,7 @@ import { User } from './user/schemas/user.shcema';
       rootPath: join(__dirname, '..', 'public'),
     }),
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(
-      'mongodb+srv://viniciusMB:58274169@cluster0.5dhn5.mongodb.net/?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URL),
     MongooseModule.forFeature([
       {
         name: 'Book',
