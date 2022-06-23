@@ -26,8 +26,11 @@ class LoginState extends State<Login> {
 
   static void signIn(data) {
     print(data);
-    // UserLoginBody request = UserLoginBody(email: email, password: password);
-    // AuthRepository.signIn(request);
+    UserLoginBody request = UserLoginBody(
+      email: "teste",
+      password: "teste123@teste.com",
+    );
+    AuthRepository.signIn(request);
   }
 
   @override
