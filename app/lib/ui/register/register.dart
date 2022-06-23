@@ -191,9 +191,17 @@ class Register extends StatelessWidget {
                   padding: EdgeInsets.only(right: 61),
                   child: Align(
                     alignment: Alignment.topRight,
-                    child: Text(
-                      'Já possui conta ? Faça Login',
-                      style: TextStyle(fontSize: 18),
+                    child: TextButton(
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed('/login'),
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.transparent),
+                      ),
+                      child: Text(
+                        'Já possui conta ? Faça Login',
+                        style: TextStyle(fontSize: 18, color: Colors.black),
+                      ),
                     ),
                   ),
                 ),
