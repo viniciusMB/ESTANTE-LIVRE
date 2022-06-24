@@ -28,7 +28,11 @@ class LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
 
-  static void signIn(email, password) {
+  static void signIn(
+    String email,
+    String password,
+    void Function() redirectCallback,
+  ) async {
     print(email);
     print(password);
     UserLoginBody request = UserLoginBody(
@@ -37,8 +41,8 @@ class LoginState extends State<Login> {
     );
     Future<AuthToken?> token = AuthRepository.signIn(request);
     if (token != null) {
-      Navigator.of(context).pushNamed('/')
-    };
+      redirectCallback();
+    }
   }
 
   @override
@@ -192,7 +196,11 @@ class LoginState extends State<Login> {
                           if (_formKey.currentState!.validate())
                             {
                               _formKey.currentState!.save(),
-                              signIn(email, password),
+                              signIn(
+                                email,
+                                password,
+                                () => Navigator.of(context).pushNamed('/'),
+                              ),
                             },
                         },
                         style: ButtonStyle(
