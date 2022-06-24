@@ -156,6 +156,7 @@ class LoginState extends State<Login> {
                           focusColor: ShelfColors.greenLight,
                           filled: true,
                         ),
+                        obscureText: true,
                       ),
                     ),
                   ),

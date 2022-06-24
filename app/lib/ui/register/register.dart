@@ -97,6 +97,9 @@ class RegisterState extends State<Register> {
                         : EdgeInsets.fromLTRB(61, 50, 61, 0),
                     child: Center(
                       child: TextFormField(
+                        onSaved: (value) {
+                          username = value ?? "";
+                        },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderSide:
@@ -119,6 +122,9 @@ class RegisterState extends State<Register> {
                         : EdgeInsets.fromLTRB(61, 50, 61, 0),
                     child: Center(
                       child: TextFormField(
+                        onSaved: (value) {
+                          email = value ?? "";
+                        },
                         validator: (email) {
                           if (email == null || email.isEmpty) {
                             return 'Digite seu Email';
@@ -150,6 +156,9 @@ class RegisterState extends State<Register> {
                         : EdgeInsets.fromLTRB(61, 50, 61, 0),
                     child: Center(
                       child: TextFormField(
+                        onSaved: (value) {
+                          password = value ?? "";
+                        },
                         validator: (password) {
                           if (password == null || password.isEmpty) {
                             return 'Digite sua senha';
@@ -169,6 +178,7 @@ class RegisterState extends State<Register> {
                           focusColor: ShelfColors.greenLight,
                           filled: true,
                         ),
+                        obscureText: true,
                       ),
                     ),
                   ),
@@ -177,7 +187,10 @@ class RegisterState extends State<Register> {
                         ? EdgeInsets.fromLTRB(61, 20, 61, 0)
                         : EdgeInsets.fromLTRB(61, 50, 61, 14.39),
                     child: Center(
-                      child: TextField(
+                      child: TextFormField(
+                        onSaved: (value) {
+                          confirmPassword = value ?? "";
+                        },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderSide:
@@ -212,7 +225,15 @@ class RegisterState extends State<Register> {
                       child: ElevatedButton(
                         onPressed: () => {
                           if (_formKey.currentState!.validate())
-                            signUp(_formKey.currentState),
+                            {
+                              _formKey.currentState!.save(),
+                              signUp(
+                                username,
+                                email,
+                                password,
+                                confirmPassword,
+                              ),
+                            },
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
