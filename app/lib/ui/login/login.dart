@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:estante_livre/common/shelf_colors.dart';
+import 'package:estante_livre/model/auth_token.dart';
 import 'package:estante_livre/model/user_login_body.dart';
 import 'package:estante_livre/network/auth_repository.dart';
 
@@ -34,7 +35,10 @@ class LoginState extends State<Login> {
       email: email,
       password: password,
     );
-    AuthRepository.signIn(request);
+    Future<AuthToken?> token = AuthRepository.signIn(request);
+    if (token != null) {
+      Navigator.of(context).pushNamed('/')
+    };
   }
 
   @override
@@ -166,13 +170,13 @@ class LoginState extends State<Login> {
                       alignment: Alignment.topRight,
                       child: TextButton(
                         onPressed: () =>
-                            Navigator.of(context).pushNamed('/forgot'),
+                            Navigator.of(context).pushNamed('/register'),
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(Colors.transparent),
                         ),
                         child: Text(
-                          'Esqueci minha senha',
+                          'Não possui conta? Cadastre-se!',
                           style: TextStyle(fontSize: 18, color: Colors.black),
                         ),
                       ),

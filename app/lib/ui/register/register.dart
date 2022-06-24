@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:estante_livre/common/shelf_colors.dart';
+import 'package:estante_livre/model/auth_token.dart';
 import 'package:flutter/material.dart';
 import 'package:estante_livre/model/user_register_body.dart';
 import 'package:estante_livre/network/auth_repository.dart';
@@ -31,9 +32,7 @@ class RegisterState extends State<Register> {
       username: username,
       email: email,
       password: password,
-      confirmPassword: confirmPassword,
     );
-    AuthRepository.signUp(request);
   }
 
   @override
@@ -97,6 +96,12 @@ class RegisterState extends State<Register> {
                         : EdgeInsets.fromLTRB(61, 50, 61, 0),
                     child: Center(
                       child: TextFormField(
+                        validator: (password) {
+                          if (password == null || password.isEmpty) {
+                            return 'Digite seu nome';
+                          }
+                          return null;
+                        },
                         onSaved: (value) {
                           username = value ?? "";
                         },
@@ -188,6 +193,12 @@ class RegisterState extends State<Register> {
                         : EdgeInsets.fromLTRB(61, 50, 61, 14.39),
                     child: Center(
                       child: TextFormField(
+                        validator: (confirmPassword) {
+                          if (confirmPassword != password) {
+                            return 'As senhas não correspondem.';
+                          }
+                          return null;
+                        },
                         onSaved: (value) {
                           confirmPassword = value ?? "";
                         },
@@ -204,6 +215,7 @@ class RegisterState extends State<Register> {
                           focusColor: ShelfColors.greenLight,
                           filled: true,
                         ),
+                        obscureText: true,
                       ),
                     ),
                   ),
@@ -224,9 +236,9 @@ class RegisterState extends State<Register> {
                     child: Center(
                       child: ElevatedButton(
                         onPressed: () => {
+                          _formKey.currentState!.save(),
                           if (_formKey.currentState!.validate())
                             {
-                              _formKey.currentState!.save(),
                               signUp(
                                 username,
                                 email,
