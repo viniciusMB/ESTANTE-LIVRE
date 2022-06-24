@@ -21,14 +21,18 @@ class LoginState extends State<Login> {
   //
   // Note: This is a `GlobalKey<FormState>`,
   // not a GlobalKey<MyCustomFormState>.
+  String email = "";
+  String password = "";
+
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
 
-  static void signIn(data) {
-    print(data);
+  static void signIn(email, password) {
+    print(email);
+    print(password);
     UserLoginBody request = UserLoginBody(
-      email: "teste",
-      password: "teste123@teste.com",
+      email: email,
+      password: password,
     );
     AuthRepository.signIn(request);
   }
@@ -96,6 +100,9 @@ class LoginState extends State<Login> {
                         : EdgeInsets.fromLTRB(61, 50, 61, 0),
                     child: Center(
                       child: TextFormField(
+                        onSaved: (value) {
+                          email = value ?? "";
+                        },
                         validator: (email) {
                           if (email == null || email.isEmpty) {
                             return 'Digite seu Email';
@@ -127,6 +134,9 @@ class LoginState extends State<Login> {
                         : EdgeInsets.fromLTRB(61, 50, 61, 14.39),
                     child: Center(
                       child: TextFormField(
+                        onSaved: (value) {
+                          password = value ?? "";
+                        },
                         validator: (password) {
                           if (password == null || password.isEmpty) {
                             return 'Digite sua senha';
@@ -175,7 +185,10 @@ class LoginState extends State<Login> {
                       child: ElevatedButton(
                         onPressed: () => {
                           if (_formKey.currentState!.validate())
-                            signIn(_formKey.currentState),
+                            {
+                              _formKey.currentState!.save(),
+                              signIn(email, password),
+                            },
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(

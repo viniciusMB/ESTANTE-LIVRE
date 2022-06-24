@@ -15,16 +15,24 @@ class Register extends StatefulWidget {
 }
 
 class RegisterState extends State<Register> {
+  String username = "";
+  String email = "";
+  String password = "";
+  String confirmPassword = "";
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
 
-  static void signUp(data) {
-    print(data);
+  static void signUp(username, email, password, confirmPassword) {
+    print(username);
+    print(email);
+    print(password);
+    print(confirmPassword);
     UserRegisterBody request = UserRegisterBody(
-        username: "teste",
-        email: "teste@teste.com",
-        password: "senha123",
-        confirmPassword: "senha123");
+      username: username,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+    );
     AuthRepository.signUp(request);
   }
 
@@ -258,5 +266,13 @@ class RegisterState extends State<Register> {
         ),
       ),
     );
+  }
+}
+
+extension EmailValidator on String {
+  bool isValidEmail() {
+    return RegExp(
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
+    ).hasMatch(this);
   }
 }
