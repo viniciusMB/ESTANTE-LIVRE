@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Observable, from, of } from 'rxjs';
-import { User } from '../../user/schemas/user.interface';
+import { IUser } from '../../user/schemas/user.interface';
 import bcrypt from 'bcrypt';
+import { CreateUserDto } from 'src/user/dto/create-user.dto';
 
 @Injectable()
 export class AuthService {
   constructor(private readonly jwtService: JwtService) {}
 
-  async generateJWT(user: User) {
+  async generateJWT(user: CreateUserDto) {
     return this.jwtService.signAsync({ user });
   }
 
