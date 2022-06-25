@@ -23,7 +23,7 @@ class GenreSelection extends StatelessWidget {
       children: [
         Text(
           'Navegue por Gêneros',
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.headline2,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 24),
