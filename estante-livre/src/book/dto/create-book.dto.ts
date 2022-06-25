@@ -1,7 +1,27 @@
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+
 export class CreateBookDto {
-  title: string;
+  @ApiProperty()
   author: string;
+
+  @ApiProperty()
+  ownerId: string;
+
+  @ApiProperty()
   description: string;
-  releaseDate: string;
+
+  @ApiPropertyOptional()
+  releaseDate?: any;
+
+  @ApiPropertyOptional()
+  bookImage?: string;
+
+  @ApiPropertyOptional()
+  location?: string;
+
+  @ApiPropertyOptional()
+  genre?: string;
+
+  @ApiProperty()
   status: string;
 }
