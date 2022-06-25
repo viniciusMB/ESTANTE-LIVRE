@@ -23,7 +23,13 @@ class RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
 
-  static void signUp(username, email, password, confirmPassword) {
+  static void signUp(
+    String username,
+    String email,
+    String password,
+    String confirmPassword,
+    void Function() redirectCallback,
+  ) async {
     print(username);
     print(email);
     print(password);
@@ -33,6 +39,10 @@ class RegisterState extends State<Register> {
       email: email,
       password: password,
     );
+    bool success = await AuthRepository.signUp(request);
+    if (success) {
+      redirectCallback();
+    }
   }
 
   @override
@@ -244,6 +254,8 @@ class RegisterState extends State<Register> {
                                 email,
                                 password,
                                 confirmPassword,
+                                () =>
+                                    {Navigator.of(context).pushNamed('/login')},
                               ),
                             },
                         },
