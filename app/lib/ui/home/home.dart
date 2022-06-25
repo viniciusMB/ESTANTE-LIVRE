@@ -1,3 +1,5 @@
+import 'package:estante_livre/ui/home/call_to_action.dart';
+import 'package:estante_livre/ui/home/genre_selection.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -7,23 +9,22 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            child: const Text('Detalhes do Livro'),
-            onPressed: () => Navigator.of(context).pushNamed('/book_details'),
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 28),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Flexible(
+                  child: CallToAction(),
+                ),
+                SizedBox(width: 48),
+                Flexible(
+                  child: GenreSelection(),
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            child: const Text('Catálogo'),
-            onPressed: () => Navigator.of(context).pushNamed('/catalog'),
-          ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            child: const Text('Minha área'),
-            onPressed: () => Navigator.of(context).pushNamed('/my_area'),
-          ),
-          const SizedBox(height: 10),
         ],
       ),
     );
