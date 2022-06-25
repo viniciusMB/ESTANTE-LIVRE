@@ -32,9 +32,13 @@ class AuthRepository {
     return token;
   }
 
-  /// Attempts to create an account from a given [UserLoginBody].
-  static Future<void> signUp(UserRegisterBody data) async {
-    await DioSingleton.post(_signUpUrl, data: data);
+  /// Attempts to create an account from a given [UserRegisterBody].
+  static Future<bool> signUp(UserRegisterBody data) async {
+    final Response<Map<String, dynamic>> response =
+        await DioSingleton.post(_signUpUrl, data: data);
+
+    final bool success = response.statusCode == '200';
+    return success;
   }
 
   /// Signs out by invalidating the curent token and removing it from memory

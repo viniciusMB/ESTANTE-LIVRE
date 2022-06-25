@@ -26,7 +26,7 @@ class App extends StatelessWidget {
       home: const Home(),
       routes: <String, WidgetBuilder>{
         '/catalog': (BuildContext context) => const Catalog(),
-        '/login': (BuildContext context) => const Login(),
+        '/login': (BuildContext context) => Login(),
         '/register': (BuildContext context) => const Register(),
         '/my_area': (BuildContext context) => const MyArea(),
         '/book_details': (BuildContext context) => const BookDetails(),
