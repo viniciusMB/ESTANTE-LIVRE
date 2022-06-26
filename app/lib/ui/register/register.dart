@@ -40,6 +40,7 @@ class RegisterState extends State<Register> {
       password: password,
     );
     bool success = await AuthRepository.signUp(request);
+    print(success);
     if (success) {
       redirectCallback();
     }
@@ -240,6 +241,24 @@ class RegisterState extends State<Register> {
                   //   ),
                   // ),
                   Padding(
+                    padding: EdgeInsets.only(right: 61),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: TextButton(
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed('/login'),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        child: Text(
+                          'Já possui conta ? Faça Login',
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
                     padding: MediaQuery.of(context).size.height < 750
                         ? EdgeInsets.only(top: 10, bottom: 20)
                         : EdgeInsets.only(top: 26.61, bottom: 90.39),
@@ -282,24 +301,6 @@ class RegisterState extends State<Register> {
                               color: Colors.black,
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 61),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: TextButton(
-                        onPressed: () =>
-                            Navigator.of(context).pushNamed('/login'),
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.transparent),
-                        ),
-                        child: Text(
-                          'Já possui conta ? Faça Login',
-                          style: TextStyle(fontSize: 18, color: Colors.black),
                         ),
                       ),
                     ),

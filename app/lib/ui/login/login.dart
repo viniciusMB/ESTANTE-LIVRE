@@ -40,6 +40,7 @@ class LoginState extends State<Login> {
       password: password,
     );
     Future<AuthToken?> token = AuthRepository.signIn(request);
+    print(token);
     if (token != null) {
       redirectCallback();
     }

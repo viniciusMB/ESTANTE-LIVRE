@@ -15,8 +15,8 @@ class AuthRepository {
   // on some flutter classes, such as Colors.
   const AuthRepository._();
 
-  static const String _signInUrl = '/signin';
-  static const String _signUpUrl = '/signup';
+  static const String _signInUrl = '/users/login';
+  static const String _signUpUrl = '/user';
   static const String _signOutUrl = '/signout';
 
   /// Attempts to sign in on the platform from a given [UserLoginBody].
@@ -37,7 +37,7 @@ class AuthRepository {
     final Response<Map<String, dynamic>> response =
         await DioSingleton.post(_signUpUrl, data: data);
 
-    final bool success = response.statusCode == '200';
+    final bool success = response.statusCode == '201';
     return success;
   }
 
