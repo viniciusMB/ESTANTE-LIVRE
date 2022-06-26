@@ -18,7 +18,7 @@ class DioSingleton {
   /// private field to avoid direct mutations to it's state.
   static final Dio _clientSingleton = Dio(
     BaseOptions(
-      baseUrl: apiBaseUrl,
+      baseUrl: 'localhost:3004/',
       connectTimeout: 12000,
     ),
   )..interceptors.add(TokenInterceptor());
