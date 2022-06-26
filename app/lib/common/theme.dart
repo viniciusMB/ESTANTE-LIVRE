@@ -36,7 +36,7 @@ final shelfTheme = ThemeData(
     ),
     bodyText2: TextStyle(
       color: Colors.black,
-      fontSize: 18,
+      fontSize: 16,
     ),
   ),
 );

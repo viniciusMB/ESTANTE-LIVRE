@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'package:estante_livre/common/consts.dart';
 import 'package:estante_livre/model/book.dart';
 import 'package:flutter/material.dart';
 
@@ -22,39 +21,6 @@ class _CatalogState extends State<Catalog> {
   static const List<String> _bookConditions = [
     'Usado',
     'Novo',
-  ];
-
-  static const List<Book> _mockBookData = [
-    Book(
-      title: 'Percy Jackson: O ladrão de raios',
-      location: 'Salvador',
-      bookCondition: 'Usado',
-    ),
-    Book(
-      title: 'Harry Potter e a pedra filosofal',
-      location: 'Vitória da Conquista',
-      bookCondition: 'Novo',
-    ),
-    Book(
-      title: 'O livro de ponteiros',
-      location: 'Camaçari',
-      bookCondition: 'Usado',
-    ),
-    Book(
-      title: 'A culpa é das estrelas',
-      location: 'Camaçari',
-      bookCondition: 'Novo',
-    ),
-    Book(
-      title: '365 dias',
-      location: 'Vitória da Conquista',
-      bookCondition: 'Usado',
-    ),
-    Book(
-      title: 'O Senhor dos Anéis',
-      location: 'Salvador',
-      bookCondition: 'Novo',
-    ),
   ];
 
   String _currentLocation = '';
@@ -167,7 +133,7 @@ class _CatalogState extends State<Catalog> {
                     mainAxisSpacing: 20,
                     childAspectRatio: 3 / 2,
                   ),
-                  children: _mockBookData
+                  children: mockBooks
                       .where((element) {
                         bool locationMatch = _currentLocation == '' ||
                             element.location == _currentLocation;
