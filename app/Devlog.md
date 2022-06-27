@@ -26,7 +26,7 @@ Uma tela atribuída pra mim, foi onde eu tive menos progresso devido a minhas ou
 
 ## Victor Peixoto
 
-### Book Request Success/Fail
+### Book Request
 
 Ambos os Widgets foram razoavelmente simples de se realizar, o maior desafio sendo como fazê-los encaixar bem na tela, no início, foi feito utilizando Padding, porém, conhecendo melhor convenções e Widgets, refiz esse trecho utilizando SizedBox.
 
@@ -35,6 +35,8 @@ O botão, independente de sucesso ou falha, remove o Widget da tela pela funçã
 O símbolo, frase e botão foram dispostos utilizando uma Column básica, o botão foi posicionado no local correto utilizando o Align Center-Right, visto a quantidade de espaço que o foi fornecido pelo Widget pai, não sobrou muito.
 
 Notando que o Widget pai de todos vai fornecer a quantidade de espaço que o filho pede enquanto ele puder, ocorrendo como uma "negociação" entre Widgets.
+
+Utilizando do StatefulWidget, criei um widget geral que, quando chamado, deve ser especificada a propriedade de "success", um valor bool que irá fazer o widget retornar o já conhecido de sucesso ou de falha da requisição.
 
 ### Book Confirmation
 

@@ -2,20 +2,27 @@ import 'package:flutter/material.dart';
 
 import '../../common/shelf_colors.dart';
 
-class BookRequestSuccess extends StatelessWidget {
-  const BookRequestSuccess({Key? key}) : super(key: key);
+class BookRequest extends StatefulWidget {
+  const BookRequest({
+    Key? key,
+    required this.success,
+  }) : super(key: key);
+  @override
+  _BookRequestState createState() => _BookRequestState();
 
+  final bool success;
+}
+
+class _BookRequestState extends State<BookRequest> {
   @override
   Widget build(BuildContext context) {
     //Card em si
     return Center(
       child: SizedBox(
-        //margin: const EdgeInsets.symmetric(horizontal: 24),
         height: (MediaQuery.of(context).size.height * 0.7),
         width: (MediaQuery.of(context).size.height * 0.7),
         child: Card(
           shadowColor: Colors.black,
-          //margin: const EdgeInsets.symmetric(vertical: 80, horizontal: 250), //Need to make a sizedBox to Wrap the Card and pass the width and height there.
           color: ShelfColors.blueLighter,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(40.0)),
@@ -28,19 +35,21 @@ class BookRequestSuccess extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               //Ícone
-              const Center(
+              Center(
                 child: Icon(
-                  Icons.check_circle,
-                  color: ShelfColors.green,
+                  widget.success ? Icons.check_circle : Icons.cancel,
+                  color: widget.success ? ShelfColors.green : ShelfColors.red,
                   size: 320,
                 ),
               ),
 
               //Descrição
-              const Center(
+              Center(
                 child: Text(
-                  'Sua solicitação foi enviada!',
-                  style: TextStyle(
+                  widget.success
+                      ? 'Sua solicitação foi enviada!'
+                      : 'Envio de solicitação falhou.',
+                  style: const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
@@ -55,15 +64,16 @@ class BookRequestSuccess extends StatelessWidget {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(120, 60),
-                      primary: ShelfColors.green,
+                      primary:
+                          widget.success ? ShelfColors.green : ShelfColors.red,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(32.0)),
                       ),
                     ),
                     onPressed: () => Navigator.of(context).pop(),
-                    child: const Text(
-                      'Concluir',
-                      style: TextStyle(color: Colors.black),
+                    child: Text(
+                      widget.success ? 'Concluir' : 'Voltar',
+                      style: const TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
