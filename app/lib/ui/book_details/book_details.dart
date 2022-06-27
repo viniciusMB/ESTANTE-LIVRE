@@ -1,5 +1,3 @@
-// ignore_for_file: lines_longer_than_80_chars
-
 import 'package:flutter/material.dart';
 
 import '../../common/shelf_colors.dart';
@@ -12,6 +10,7 @@ class BookDetails extends StatefulWidget {
   @override
   _BookDetailsState createState() => _BookDetailsState();
 
+  ///Placeholders para quando for, de fato, realizar a requisição para as informações.
   final String bookName = 'Harry Potter e a Câmara Secreta';
   final String bookGenre = 'Aventura';
   final String bookState = 'Novo';
