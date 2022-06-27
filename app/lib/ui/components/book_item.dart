@@ -9,12 +9,21 @@ class BookItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: const BoxDecoration(
-        color: ShelfColors.greenLight,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+    return ElevatedButton(
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(const EdgeInsets.all(24)),
+        backgroundColor: MaterialStateProperty.all(
+          ShelfColors.greenLight,
+        ),
+        shape: MaterialStateProperty.all(
+          const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
+          ),
+        ),
       ),
+      onPressed: () => Navigator.of(context).pushNamed('/book_details'),
       child: Row(
         children: [
           Image.network(

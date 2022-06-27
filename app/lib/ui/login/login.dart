@@ -1,9 +1,7 @@
-import 'dart:html';
-
 import 'package:estante_livre/common/shelf_colors.dart';
-import 'package:estante_livre/model/auth_token.dart';
-import 'package:estante_livre/model/user_login_body.dart';
-import 'package:estante_livre/network/auth_repository.dart';
+// import 'package:estante_livre/model/auth_token.dart';
+// import 'package:estante_livre/model/user_login_body.dart';
+// import 'package:estante_livre/network/auth_repository.dart';
 
 import 'package:flutter/material.dart';
 
@@ -22,27 +20,25 @@ class LoginState extends State<Login> {
   //
   // Note: This is a `GlobalKey<FormState>`,
   // not a GlobalKey<MyCustomFormState>.
-  String email = "";
-  String password = "";
+  String email = '';
+  String password = '';
 
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _controller = TextEditingController();
 
   static void signIn(
-    String email,
-    String password,
+    // String email,
+    // String password,
     void Function() redirectCallback,
   ) async {
-    print(email);
-    print(password);
-    UserLoginBody request = UserLoginBody(
-      email: email,
-      password: password,
-    );
-    Future<AuthToken?> token = AuthRepository.signIn(request);
-    if (token != null) {
-      redirectCallback();
-    }
+    // UserLoginBody request = UserLoginBody(
+    //   email: email,
+    //   password: password,
+    // );
+    // AuthToken? token = await AuthRepository.signIn(request);
+    // if (token != null) {
+    //   redirectCallback();
+    // }
+    redirectCallback();
   }
 
   @override
@@ -54,9 +50,6 @@ class LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              // height: MediaQuery.of(context).size.height < 750
-              //     ? MediaQuery.of(context).size.height * 0.6
-              //     : MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.width * 0.4,
               decoration: const BoxDecoration(
                 color: ShelfColors.green,
@@ -75,15 +68,15 @@ class LoginState extends State<Login> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(right: 8),
-                            child: Image.asset("assets/images/logo.png"),
+                            child: Image.asset('assets/images/logo.png'),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 8),
                             child: Text(
                               'Estante Livre',
                               style: MediaQuery.of(context).size.height < 750
-                                  ? TextStyle(fontSize: 20)
-                                  : TextStyle(fontSize: 25),
+                                  ? const TextStyle(fontSize: 20)
+                                  : const TextStyle(fontSize: 25),
                             ),
                           ),
                         ],
@@ -104,12 +97,12 @@ class LoginState extends State<Login> {
                   ),
                   Padding(
                     padding: MediaQuery.of(context).size.height < 750
-                        ? EdgeInsets.fromLTRB(61, 30, 61, 0)
-                        : EdgeInsets.fromLTRB(61, 50, 61, 0),
+                        ? const EdgeInsets.fromLTRB(61, 30, 61, 0)
+                        : const EdgeInsets.fromLTRB(61, 50, 61, 0),
                     child: Center(
                       child: TextFormField(
                         onSaved: (value) {
-                          email = value ?? "";
+                          email = value ?? '';
                         },
                         validator: (email) {
                           if (email == null || email.isEmpty) {
@@ -118,9 +111,10 @@ class LoginState extends State<Login> {
                           if (!email.isValidEmail()) {
                             return 'Este email não é válido';
                           }
+
                           return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: ShelfColors.greenLight),
@@ -138,20 +132,21 @@ class LoginState extends State<Login> {
                   ),
                   Padding(
                     padding: MediaQuery.of(context).size.height < 750
-                        ? EdgeInsets.fromLTRB(61, 30, 61, 14.39)
-                        : EdgeInsets.fromLTRB(61, 50, 61, 14.39),
+                        ? const EdgeInsets.fromLTRB(61, 30, 61, 14.39)
+                        : const EdgeInsets.fromLTRB(61, 50, 61, 14.39),
                     child: Center(
                       child: TextFormField(
                         onSaved: (value) {
-                          password = value ?? "";
+                          password = value ?? '';
                         },
                         validator: (password) {
                           if (password == null || password.isEmpty) {
                             return 'Digite sua senha';
                           }
+
                           return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: ShelfColors.fakeWhite),
@@ -169,7 +164,7 @@ class LoginState extends State<Login> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 61),
+                    padding: const EdgeInsets.only(right: 61),
                     child: Align(
                       alignment: Alignment.topRight,
                       child: TextButton(
@@ -179,7 +174,7 @@ class LoginState extends State<Login> {
                           backgroundColor:
                               MaterialStateProperty.all(Colors.transparent),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Não possui conta? Cadastre-se!',
                           style: TextStyle(fontSize: 18, color: Colors.black),
                         ),
@@ -188,8 +183,8 @@ class LoginState extends State<Login> {
                   ),
                   Padding(
                     padding: MediaQuery.of(context).size.height < 750
-                        ? EdgeInsets.only(top: 16.61, bottom: 50)
-                        : EdgeInsets.only(top: 26.61, bottom: 90.39),
+                        ? const EdgeInsets.only(top: 16.61, bottom: 50)
+                        : const EdgeInsets.only(top: 26.61, bottom: 90.39),
                     child: Center(
                       child: ElevatedButton(
                         onPressed: () => {
@@ -197,8 +192,8 @@ class LoginState extends State<Login> {
                             {
                               _formKey.currentState!.save(),
                               signIn(
-                                email,
-                                password,
+                                // email,
+                                // password,
                                 () => Navigator.of(context).pushNamed('/'),
                               ),
                             },
@@ -220,7 +215,7 @@ class LoginState extends State<Login> {
                           padding: MediaQuery.of(context).size.height < 750
                               ? const EdgeInsets.fromLTRB(30, 10, 20, 10)
                               : const EdgeInsets.fromLTRB(30, 10, 39.81, 10),
-                          child: Text(
+                          child: const Text(
                             'Entrar',
                             style: TextStyle(
                               color: Colors.black,

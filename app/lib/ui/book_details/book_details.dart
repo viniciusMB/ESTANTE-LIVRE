@@ -1,24 +1,17 @@
+import 'package:estante_livre/model/book.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/shelf_colors.dart';
 import '../book_confirmation/book_confirmation.dart';
 
 class BookDetails extends StatefulWidget {
+  final Book book;
   const BookDetails({
+    required this.book,
     Key? key,
   }) : super(key: key);
   @override
   _BookDetailsState createState() => _BookDetailsState();
-
-  ///Placeholders para quando for, de fato, realizar a requisição para as informações.
-  final String bookName = 'Harry Potter e a Câmara Secreta';
-  final String bookGenre = 'Aventura';
-  final String bookState = 'Novo';
-  final String bookLocation = 'Salvador';
-  final String bookCondition = 'Boa';
-  final String bookDescription =
-      'This book tells the story of a boy called Harry Potter when he and his friends find out about a secret chamber inside their magic school.';
-  final String bookOwner = 'Victor';
 }
 
 class _BookDetailsState extends State<BookDetails> {
@@ -38,8 +31,8 @@ class _BookDetailsState extends State<BookDetails> {
               borderRadius: BorderRadius.all(Radius.circular(40.0)),
             ),
 
-            //Definindo a coluna que vai ter a imagem e a parte de conteúdos do livro
-
+            /// Definindo a coluna que vai ter a imagem
+            /// e a parte de conteúdos do livro
             child: Padding(
               padding: const EdgeInsets.all(36),
               child: Row(
@@ -61,9 +54,7 @@ class _BookDetailsState extends State<BookDetails> {
                         height:
                             (MediaQuery.of(context).size.height * 0.6), //450,
                         width: (MediaQuery.of(context).size.width * 0.2), //300,
-                        child: Image.asset(
-                          'assets/images/test_BD.jpg',
-                        ),
+                        child: Image.network(widget.book.imageUrl),
                       ),
                     ),
                   ),
@@ -75,7 +66,7 @@ class _BookDetailsState extends State<BookDetails> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          widget.bookName,
+                          widget.book.title,
                           style: const TextStyle(
                             fontSize: 36,
                             fontWeight: FontWeight.bold,
@@ -85,7 +76,7 @@ class _BookDetailsState extends State<BookDetails> {
                         const SizedBox(height: 24), //Espaçamento
 
                         Text(
-                          'Gênero do Livro: ${widget.bookGenre}',
+                          'Gênero do Livro: ${widget.book.genre}',
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -95,7 +86,7 @@ class _BookDetailsState extends State<BookDetails> {
                         const SizedBox(height: 24), //Espaçamento
 
                         Text(
-                          'Estado: ${widget.bookState}',
+                          'Estado: ${widget.book.rentStatus}',
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -105,7 +96,7 @@ class _BookDetailsState extends State<BookDetails> {
                         const SizedBox(height: 24), //Espaçamento
 
                         Text(
-                          'Localização: ${widget.bookLocation}',
+                          'Localização: ${widget.book.location}',
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -115,7 +106,7 @@ class _BookDetailsState extends State<BookDetails> {
                         const SizedBox(height: 24), //Espaçamento
 
                         Text(
-                          'Condição: ${widget.bookCondition}',
+                          'Condição: ${widget.book.bookCondition}',
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -128,10 +119,9 @@ class _BookDetailsState extends State<BookDetails> {
                         SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Text(
-                            widget.bookDescription,
+                            widget.book.description,
                             maxLines: 3,
                             style: const TextStyle(
-                              //overflow: TextOverflow.ellipsis,
                               fontSize: 20,
                             ),
                           ),
@@ -165,7 +155,7 @@ class _BookDetailsState extends State<BookDetails> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: Navigator.of(context).pop,
                             ),
 
                             //Botão de Solicitação
@@ -197,9 +187,9 @@ class _BookDetailsState extends State<BookDetails> {
                                     return Dialog(
                                       backgroundColor: Colors.transparent,
                                       child: BookConfirmation(
-                                        bookName: widget.bookName,
-                                        bookOwner: widget.bookOwner,
-                                        bookLocation: widget.bookLocation,
+                                        bookName: widget.book.title,
+                                        bookOwner: widget.book.owner,
+                                        bookLocation: widget.book.location,
                                       ),
                                     );
                                   },
