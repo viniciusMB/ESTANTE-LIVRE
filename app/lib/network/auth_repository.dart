@@ -37,8 +37,7 @@ class AuthRepository {
     final Response<Map<String, dynamic>> response =
         await DioSingleton.post(_signUpUrl, data: data);
 
-    final bool success = response.statusCode == '200';
-    return success;
+    return response.statusCode == 200;
   }
 
   /// Signs out by invalidating the curent token and removing it from memory

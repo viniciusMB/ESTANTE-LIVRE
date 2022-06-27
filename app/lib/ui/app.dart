@@ -1,6 +1,7 @@
 import 'package:estante_livre/common/shelf_app_bar.dart';
 import 'package:estante_livre/common/shelf_bottom_sheet.dart';
 import 'package:estante_livre/common/theme.dart';
+import 'package:estante_livre/model/book.dart';
 import 'package:estante_livre/ui/book_details/book_details.dart';
 import 'package:estante_livre/ui/catalog/catalog.dart';
 import 'package:estante_livre/ui/home/home.dart';
@@ -26,7 +27,8 @@ class App extends StatelessWidget {
         '/login': (BuildContext context) => const Login(),
         '/register': (BuildContext context) => const Register(),
         '/my_area': (BuildContext context) => const MyArea(),
-        '/book_details': (BuildContext context) => const BookDetails(),
+        '/book_details': (BuildContext context) =>
+            BookDetails(book: Book.createMock()),
       },
       builder: (BuildContext context, Widget? pageWidget) =>
           ScrollConfiguration(

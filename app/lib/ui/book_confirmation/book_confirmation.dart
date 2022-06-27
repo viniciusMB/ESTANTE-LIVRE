@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:estante_livre/ui/book_request/book_request.dart';
 import 'package:flutter/material.dart';
 import '../../common/shelf_colors.dart';
@@ -109,7 +107,8 @@ class _BookConfirmationState extends State<BookConfirmation> {
                         children: <InlineSpan>[
                           WidgetSpan(
                             child: Text(
-                              'Entre em mais detalhes sobre sua solicitação e não esqueça de seu e-mail!',
+                              '''Entre em mais detalhes sobre sua solicitação '''
+                              '''e não esqueça de seu e-mail!''',
                               style: TextStyle(
                                 color: Colors.black,
                               ),
